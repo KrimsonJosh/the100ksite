@@ -12,12 +12,13 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Force light theme regardless of the user's OS preference */
+html {
+  color-scheme: light;
 }
+
+/* If you later want to re-enable dark mode, remove the above override and
+   uncomment or re-add a prefers-color-scheme media query. */
 
 body {
   background: var(--background);
