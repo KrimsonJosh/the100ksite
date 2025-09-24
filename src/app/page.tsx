@@ -37,25 +37,29 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-10">
-      <h1 className="text-2xl font-bold mb-4">Day 1 Chat</h1>
+    <main className="flex min-h-screen flex-col items-center p-4 sm:p-10">
+      <h1 className="text-2xl font-bold mb-4 text-center w-full">Day 1 Chat</h1>
 
-      <div className="w-full max-w-md border rounded p-4 space-y-2 mb-4">
+      <div className="w-full max-w-md border rounded p-2 sm:p-4 space-y-2 mb-4 bg-white/80">
         {messages.map((m) => (
-          <div key={m.id} className="p-2 bg-gray-100 rounded">
+          <div key={m.id} className="p-2 bg-gray-100 rounded break-words text-sm sm:text-base">
             {m.text}
           </div>
         ))}
       </div>
 
-      <form onSubmit={sendMessage} className="flex gap-2 w-full max-w-md">
+      <form onSubmit={sendMessage} className="flex flex-col sm:flex-row gap-2 w-full max-w-md">
         <input
           value={text}
           onChange={(e) => setText(e.target.value)}
-          className="flex-1 border p-2"
+          className="flex-1 border p-2 rounded text-sm sm:text-base"
           placeholder="Type a message"
+          autoComplete="off"
         />
-        <button type="submit" className="bg-blue-500 text-white px-4 cursor-pointer">
+        <button
+          type="submit"
+          className="bg-blue-500 text-white px-4 py-2 rounded text-base active:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
           Send
         </button>
       </form>
